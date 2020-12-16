@@ -5,13 +5,6 @@ import java.util.Map;
 
 public class _290_wordPattern {
     public boolean wordPattern(String pattern, String s) {
-//        List<String> strs = new ArrayList<>();
-//        StringBuilder str = new StringBuilder();
-//        for (int i = 0; i < s.length(); i++) {
-//            if (s.charAt(i) != ' ') {
-//                str.
-//            }
-//        }
         String[] strs = s.split(" ");
         if (strs.length != pattern.length()) {
             return false;
