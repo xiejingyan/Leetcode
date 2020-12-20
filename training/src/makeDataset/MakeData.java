@@ -26,45 +26,48 @@ public class MakeData {
     }
 
     public static void writeMethod(List<String> strings, String name) {
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(name));
-            out.write("L,SVN,PR,DO,CP,SNR");
-            out.newLine();
-            for (String s : strings) {
-                int n = (s.length() - 1) / 16;
-                List<String> res = new ArrayList<>();
-                res.add(s.substring(0, 3));
-                int j = 4;
-                int num = n / 4;
-                if (n % 4 != 0) {
-                    num++;
-                }
-                while (s.startsWith("             ", j)) {
-                    j += 16;
-                }
-                for (int i = 0;i < 4; i++) {
-                    if (j >= s.length()) {
-                        res.add("             ");
-                    }
-                    else {
-                        res.add(s.substring(j, j + 13));
-                        j += 16 * num;
-                    }
-                }
-                if (res.contains("             ")) {
-                    continue;
-                }
-                out.write("1," + res.get(0) + "," + res.get(1) + "," + res.get(2) + "," + res.get(3) + "," + res.get(4));
+        int flag = 0;
+        for (int tmp = 0; tmp < 10; tmp++) {
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(name + "-" + tmp + ".csv"));
+                out.write("L,SVN,PR,DO,CP,SNR");
                 out.newLine();
+                for (; flag - tmp * 100 < 100; flag++) {
+                    int n = (strings.get(flag).length() - 1) / 16;
+                    List<String> res = new ArrayList<>();
+                    res.add(strings.get(flag).substring(0, 3));
+                    int j = 4;
+                    int num = n / 4;
+                    if (n % 4 != 0) {
+                        num++;
+                    }
+                    while (strings.get(flag).startsWith("             ", j)) {
+                        j += 16;
+                    }
+                    for (int i = 0;i < 4; i++) {
+                        if (j >= strings.get(flag).length()) {
+                            res.add("             ");
+                        }
+                        else {
+                            res.add(strings.get(flag).substring(j, j + 13));
+                            j += 16 * num;
+                        }
+                    }
+                    if (res.contains("             ")) {
+                        continue;
+                    }
+                    out.write("1," + res.get(0) + "," + res.get(1) + "," + res.get(2) + "," + res.get(3) + "," + res.get(4));
+                    out.newLine();
+                }
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        List<String> strings = readMethod("/Users/xpp/Desktop/urum1500.20o");
-        writeMethod(strings, "/Users/xpp/Desktop/data-urum-G01.csv");
+        List<String> strings = readMethod("/Users/xpp/Desktop/data/jfng1200.20o");
+        writeMethod(strings, "/Users/xpp/Desktop/data-jfng1200-C01");
     }
 }
