@@ -70,7 +70,7 @@ public class MakeData_2 {
     }
 
     public static void main(String[] args) {
-        List<String> strings = readMethod("/Users/xpp/Desktop/DATA/nanjiao/Z_UPAR_I_540001_20201201060300_O_GPS2.rnx/home336g03.20o");
-        writeMethod(strings, "/Users/xpp/Desktop/home336g03.20o");
+        List<String> strings = readMethod("/Users/xpp/Desktop/DATA/tongzhou/Z_UPAR_I_540001_20201126050000_O_GPS2.rnx/home331f00.20o");
+        writeMethod(strings, "/Users/xpp/Desktop/home331f00.20o");
     }
 }
