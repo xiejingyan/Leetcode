@@ -18,7 +18,7 @@ public class _721_accountsMerge {
                 }
             }
         }
-        UnionFind uf = new UnionFind(emailsCount);
+        UnionFind1 uf = new UnionFind1(emailsCount);
         for (List<String> account : accounts) {
             String firstEmail = account.get(1);
             int firstIndex = emailToIndex.get(firstEmail);
@@ -49,10 +49,10 @@ public class _721_accountsMerge {
     }
 }
 
-class UnionFind {
+class UnionFind1 {
     int[] parent;
 
-    public UnionFind(int n) {
+    public UnionFind1(int n) {
         parent = new int[n];
         for (int i = 0; i < n; i++) {
             parent[i] = i;
