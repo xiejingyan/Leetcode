@@ -1,5 +1,5 @@
 .DS_Store
-.idea
+.idea/
 out/
 training/.DS_Store
 training/src/.DS_Store
