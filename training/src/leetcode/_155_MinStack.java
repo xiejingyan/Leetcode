@@ -33,6 +33,7 @@ public class _155_MinStack {
         return min;
     }
 
+//    最小值栈
     Deque<Integer> xStack;
     Deque<Integer> minStack;
 //    public MinStack() {
