@@ -30,7 +30,7 @@ public class _341_NestedIterator implements Iterator<Integer> {
     }
 
 //    栈
-    // 存储列表的当前遍历位置
+//    // 存储列表的当前遍历位置
 //    private Deque<Iterator<NestedInteger>> stack;
 //    public NestedIterator(List<NestedInteger> nestedList) {
 //        stack = new LinkedList<Iterator<NestedInteger>>();
