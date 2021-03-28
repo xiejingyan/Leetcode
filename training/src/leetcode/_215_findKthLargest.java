@@ -5,8 +5,34 @@ import java.util.Random;
 
 public class _215_findKthLargest {
     public int findKthLargest(int[] nums, int k) {
-        Arrays.sort(nums);
-        return nums[nums.length - k];
+        qSort(nums, 0, nums.length - 1, k);
+        return nums[k - 1];
+    }
+    public void qSort(int[] nums, int l, int r, int k) {
+        int tmp = nums[l], flag1 = l, flag2 = r;
+        while (l < r) {
+            while (l <= flag2 && nums[l] >= tmp) {
+                l++;
+            }
+            while (r >= flag1 && nums[r] < tmp) {
+                r--;
+            }
+            if (l < r) {
+                int p = nums[l];
+                nums[l] = nums[r];
+                nums[r] = p;
+            }
+            else {
+                nums[flag1] = nums[r];
+                nums[r] = tmp;
+            }
+        }
+        if (r > k - 1) {
+            qSort(nums, flag1, r - 1, k);
+        }
+        else if (r < k - 1) {
+            qSort(nums, r + 1, flag2, k);
+        }
     }
 
 //    快排
