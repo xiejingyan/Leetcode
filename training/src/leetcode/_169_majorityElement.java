@@ -135,7 +135,7 @@ public class _169_majorityElement {
         return majorityElementRec(nums, 0, nums.length - 1);
     }
 
-//    Boyer-Moore 投票算法
+//    Boyer-Moore投票算法
     public int majorityElement5(int[] nums) {
         int count = 0;
         Integer candidate = null;
