@@ -1,12 +1,13 @@
 package leetcode;
 
 public class _148_sortList {
+//    自顶向下归并排序
     public ListNode sortList1(ListNode head) {
         return sortList(head, null);
     }
     public ListNode sortList(ListNode head, ListNode tail) {
         if (head == null) {
-            return head;
+            return null;
         }
         if (head.next == tail) {
             head.next = null;
@@ -27,9 +28,10 @@ public class _148_sortList {
         return sorted;
     }
 
+//    自底向上归并排序
     public ListNode sortList2(ListNode head) {
         if (head == null) {
-            return head;
+            return null;
         }
         int length = 0;
         ListNode node = head;
